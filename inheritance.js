@@ -14,7 +14,11 @@ class Student extends Staff {
   // here is a method that is specific to students
   enroll(cohort) {
     this.cohort = cohort;
-    console.log("Student '" + this.name + "' is enrolled. Welcome!");
+    console.log("Student '" + this.name + "' is enrolled. Welcome to team '" + cohort + "' !");
+  }
+
+  bio() {
+    return `I am a student. My name is ${this.name} and here's my quirky fact: ${this.quirkyFact}`;
   }
 }
 
@@ -27,7 +31,12 @@ class Mentor extends Staff {
   goOffShift() {
     this.onShift = false;
   }
+
+   bio() {
+    return `I'm a mentor at Lighthouse Labs. ${super.bio()}`;
+  }
 }
 
 student1 = new Student("Howard", "Hahaha...");
-student1.enroll("");
+student1.enroll("Amazing");
+console.log(student1.bio());
